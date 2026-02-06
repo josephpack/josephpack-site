@@ -24,31 +24,28 @@ const lastThreePosts = posts.slice(0, 3);
   <body>
     <Header />
     <main>
-      <section class="hero-section">
-        <div class="hero-content">
-          <h1>Hi, I'm Joseph Pack</h1>
-          <p class="subtitle">I write words, do marketing, and make things</p>
-          <img src="/JP-profile-photo.png" alt="Joseph Pack" class="hero-image" />
-        </div>
-      </section>
-
-      <div class="bio-content">
-        <p>I was co-founder of <strong>Nativve</strong>, and <strong>Nativve Research</strong>. I sold my shares in both companies in 2017 to travel the world and pursue new opportunities.</p>
-        <p>I was co-owner of fintech startup, <strong>Fellow Pay</strong>. I left in 2021 to pursue a burning passion.</p>
-        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s and coached dozens 1:1. Watch me explain the method on <a href="https://www.youtube.com/@ADHD_Chatter">ADHD Chatter</a>.</p>
-        <p>I do marketing consulting for clients that want to grow sustainably.</p>
-        <p>I'm always building — audiences, websites, apps. I'm inspired by solving simple problems and strive to make the web a more human place.</p>
-        <p>I've started writing short notes on the books I read. Read my <a href="/posts">book notes</a>.</p>
+      <div style="display: flex; justify-content: flex-end; margin-top: -150px; margin-bottom: 50px;">
+         <img src="/JP-profile-photo.png" alt="Joseph Pack" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;" />
       </div>
 
-      <hr />
+      <div class="bio">
+        <p>Hi! I'm Joseph. I was co-founder of <strong>Nativve</strong>, and <strong>Nativve Research</strong>. I sold my shares in both companies in 2017 to travel the world and pursue new opportunities.</p>
+        
+        <p>I was co-owner of fintech startup, <strong>Fellow Pay</strong>. I left in 2021 to pursue a burning passion.</p>
+        
+        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s. And coached dozens 1:1. Watch me explain the method on <a href="https://www.youtube.com/@ADHD_Chatter">ADHD Chatter</a>.</p>
+        
+        <p>I do marketing consulting for clients that want to grow sustainably.</p>
+        
+        <p>I'm always building — audiences, websites, apps. I'm inspired by solving simple problems and strive to make the web a more human place.</p>
+        
+        <p>Read my <a href="/posts">book notes</a>.</p>
+      </div>
 
       <HomePosts allPosts={lastThreePosts} />
-      
       <div class="all-posts-link-container">
         <a href="/posts" class="all-posts-link">See all posts</a>
       </div>
-      
       <Tags tags={tags} />
     </main>
     <Footer />
