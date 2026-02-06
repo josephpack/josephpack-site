@@ -21,41 +21,47 @@ const lastThreePosts = posts.slice(0, 3);
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; margin-bottom: 3rem; gap: 20px;">
-        <div style="flex: 1;">
-          <h1 style="font-size: 3rem; margin: 0; line-height: 1;">Joseph Pack</h1>
-          <p style="font-size: 1.5rem; color: #666; margin-top: 1rem;">I write words, do marketing, and make things</p>
-          
-          <nav style="margin-top: 2rem; display: flex; gap: 1.5rem; font-weight: bold;">
-            <a href="/" style="text-decoration: underline; text-decoration-color: #ff00ff;">home</a>
-            <a href="/posts">blog</a>
-            <a href="https://drugfreeadhd.org">adhd project</a>
-          </nav>
+    <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; margin-bottom: 3rem; gap: 40px;">
+        <div style="flex: 2;">
+          <h1 style="font-size: 3.5rem; margin: 0; font-family: 'Courier New', Courier, monospace; font-weight: bold;">Joseph Pack</h1>
+          <p style="font-size: 1.8rem; color: #555; margin-top: 0.5rem; font-family: 'Courier New', Courier, monospace;">
+            I write words, do marketing, and make things
+          </p>
         </div>
-        <img 
-          src="/JP-profile-photo.png" 
-          alt="Joseph Pack" 
-          style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid #eee;" 
-        />
+        <div style="flex: 1; display: flex; justify-content: flex-end;">
+          <img 
+            src="/JP-profile-photo.png" 
+            alt="Joseph Pack" 
+            style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;" 
+          />
+        </div>
       </div>
 
-      <div class="bio" style="font-size: 1.1rem; line-height: 1.6;">
+      <nav style="display: flex; gap: 2rem; margin-bottom: 3rem; justify-content: flex-start; font-family: 'Courier New', Courier, monospace; font-size: 1.2rem; font-weight: bold;">
+        <a href="/" style="text-decoration: underline; text-decoration-color: #ff00ff; text-underline-offset: 8px;">home</a>
+        <a href="/posts" style="text-decoration: none; color: inherit;">blog</a>
+        <a href="https://drugfreeadhd.org" style="text-decoration: none; color: inherit;">adhd project</a>
+      </nav>
+
+      <div class="bio" style="font-size: 1.2rem; line-height: 1.6; font-family: 'Courier New', Courier, monospace;">
         <p>Hi! I'm Joseph. I was co-founder of <strong>Nativve</strong>, and <strong>Nativve Research</strong>. I sold my shares in both companies in 2017 to travel the world and pursue new opportunities.</p>
         
         <p>I was co-owner of fintech startup, <strong>Fellow Pay</strong>. I left in 2021 to pursue a burning passion.</p>
         
-        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s. And coached dozens 1:1. Watch me explain the method on <a href="https://www.youtube.com/@ADHD_Chatter">ADHD Chatter</a>.</p>
+        <p>That passion project is <a href="https://drugfreeadhd.org" style="color: #000; text-decoration: underline; text-decoration-color: #00ff00;">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s. And coached dozens 1:1. Watch me explain the method on <a href="https://www.youtube.com/@ADHD_Chatter" style="color: #000; text-decoration: underline; text-decoration-color: #00ff00;">ADHD Chatter</a>.</p>
         
         <p>I do marketing consulting for clients that want to grow sustainably.</p>
         
         <p>I'm always building — audiences, websites, apps. I'm inspired by solving simple problems and strive to make the web a more human place.</p>
         
-        <p>I've started writing short notes on the books I read. Read my <a href="/posts">book notes</a>.</p>
+        <p>I've started writing short notes on the books I read. Read my <a href="/posts" style="color: #000; text-decoration: underline; text-decoration-color: #ff00ff;">book notes</a>.</p>
       </div>
 
+      <hr style="margin: 4rem 0; border: 0; border-top: 1px solid #eee;" />
+      
       <HomePosts allPosts={lastThreePosts} />
-      <div class="all-posts-link-container">
+      <div class="all-posts-link-container" style="margin-top: 2rem;">
         <a href="/posts" class="all-posts-link">See all posts</a>
       </div>
       <Tags tags={tags} />
