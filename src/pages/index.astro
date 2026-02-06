@@ -17,9 +17,7 @@ const SITE_DESCRIPTION = "I write words, do marketing, and make things.";
 const posts = await getCollection("posts");
 const tags = getTags(posts);
 
-const lastThreePosts = posts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const lastThreePosts = posts.slice(0, 3);
 ---
 
 <!doctype html>
