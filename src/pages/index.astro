@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HomePosts from "../components/HomePosts.astro";
 import ColorScript from "../components/ColorScript.astro";
@@ -22,19 +21,46 @@ const lastThreePosts = posts.slice(0, 3);
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <Header />
     <main>
-      <div class="hero-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; gap: 20px;">
-        <div>
-          <h1>Hi, I'm Joseph Pack</h1>
-          <p class="intro">I write words, do marketing, and make things</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; margin-bottom: 3rem; gap: 20px;">
+        <div style="flex: 1;">
+          <h1 style="font-size: 3rem; margin: 0; line-height: 1;">Joseph Pack</h1>
+          <p style="font-size: 1.5rem; color: #666; margin-top: 1rem;">I write words, do marketing, and make things</p>
+          
+          <nav style="margin-top: 2rem; display: flex; gap: 1.5rem; font-weight: bold;">
+            <a href="/" style="text-decoration: underline; text-decoration-color: #ff00ff;">home</a>
+            <a href="/posts">blog</a>
+            <a href="https://drugfreeadhd.org">adhd project</a>
+          </nav>
         </div>
-        <img src="/JP-profile-photo.png" alt="Joseph Pack" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" />
+        <img 
+          src="/JP-profile-photo.png" 
+          alt="Joseph Pack" 
+          style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid #eee;" 
+        />
       </div>
 
-      <div class="bio">
-        <p>I was co-founder of <strong>Nativve</strong> and <strong>Nativve Research</strong>. I sold my shares in both companies in 2017 to travel the world and pursue new opportunities.</p>
+      <div class="bio" style="font-size: 1.1rem; line-height: 1.6;">
+        <p>Hi! I'm Joseph. I was co-founder of <strong>Nativve</strong>, and <strong>Nativve Research</strong>. I sold my shares in both companies in 2017 to travel the world and pursue new opportunities.</p>
+        
         <p>I was co-owner of fintech startup, <strong>Fellow Pay</strong>. I left in 2021 to pursue a burning passion.</p>
-        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s and coached dozens 1:1. Watch me explain the method on <a href="https://www.youtube.com/@ADHD_Chatter">ADHD Chatter</a>.</p>
+        
+        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s. And coached dozens 1:1. Watch me explain the method on <a href="https://www.youtube.com/@ADHD_Chatter">ADHD Chatter</a>.</p>
+        
         <p>I do marketing consulting for clients that want to grow sustainably.</p>
+        
         <p>I'm always building — audiences, websites, apps. I'm inspired by solving simple problems and strive to make the web a more human place.</p>
+        
+        <p>I've started writing short notes on the books I read. Read my <a href="/posts">book notes</a>.</p>
+      </div>
+
+      <HomePosts allPosts={lastThreePosts} />
+      <div class="all-posts-link-container">
+        <a href="/posts" class="all-posts-link">See all posts</a>
+      </div>
+      <Tags tags={tags} />
+    </main>
+    <Footer />
+    <ColorScript />
+  </body>
+</html>
