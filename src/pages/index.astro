@@ -1,14 +1,25 @@
 ---
+import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Footer from "../components/Footer.astro";
+import HomePosts from "../components/HomePosts.astro";
+import ColorScript from "../components/ColorScript.astro";
+import Tags from "../components/Tags.astro";
+import { title, subtitle } from "../settings/settings.json";
+import { Content as About } from "./about.md";
+import getTags from "../scripts/getTags";
 
-const posts = (await Astro.glob("../../posts/*.md")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.date).valueOf() -
-    new Date(a.frontmatter.date).valueOf()
-);
-const lastThreePosts = posts.slice(0, 3);
+// This manually defines the variables Vercel was looking for
+const SITE_TITLE = "josephpacksblog";
+const SITE_DESCRIPTION = "I write words, do marketing, and make things.";
+
+const posts = await getCollection("posts");
+const tags = getTags(posts);
+
+const lastThreePosts = posts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <!doctype html>
@@ -23,31 +34,18 @@ const lastThreePosts = posts.slice(0, 3);
       <p class="intro">I write words, do marketing, and make things</p>
 
       <div class="bio">
-        <p>I was co-founder of Nativve, and Nativve Research. I sold my shares in both companies in 2017 to travel the world and pursue new opportunities.</p>
-        
+        <p>I was co-founder of Nativve, and Nativve Research. I sold my shares in both companies in 2017 to travel the world and pursue new things.</p>
         <p>I was co-owner of fintech startup, Fellow Pay. I left in 2021 to pursue a burning passion.</p>
-        
-        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>. Since then, I've taught my Drug Free ADHD Method to 1000s. And coached dozens 1:1. Watch me explain the method on <a href="#">ADHD Chatter</a>.</p>
-        
-        <p>I do marketing consulting for clients that want to grow sustainably.</p>
-        
-        <p>I'm always building — audiences, websites, apps. I'm inspired by solving simple problems and strive to make the web a more human place.</p>
-        
-        <p>I've started writing short notes on the books I read. <a href="#">Read my book notes</a>.</p>
+        <p>That passion project is <a href="https://drugfreeadhd.org">drugfreeadhd.org</a>.</p>
       </div>
 
-      <h2>Recent posts</h2>
-      <ul>
-        {
-          lastThreePosts.map((post) => (
-            <li>
-              <a href={post.url}>{post.frontmatter.title}</a>
-              <time>{post.frontmatter.date}</time>
-            </li>
-          ))
-        }
-      </ul>
-      <a href="/posts" class="view-all">View all posts →</a>
+      <HomePosts allPosts={lastThreePosts} />
+      <div class="all-posts-link-container">
+        <a href="/posts" class="all-posts-link">See all posts</a>
+      </div>
+      <Tags tags={tags} />
     </main>
+    <Footer />
+    <ColorScript />
   </body>
 </html>
