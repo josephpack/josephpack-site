@@ -1,14 +1,20 @@
 ---
-const today = new Date();
+// Minimal footer with horizontal navigation
 ---
 
-<footer>
-	&copy; {today.getFullYear()} cassidoo. <a href="https://github.com/cassidoo/blahg">This blog is open source</a>! <3
+<footer class="site-footer">
+	<nav>
+		<a href="/" class="rat" aria-label="Home">🦉</a>
+		<a href="/about">About</a>
+		<a href="/posts">Words</a>
+		<a href="/products">Products</a>
+		<a href="/newsletter">Newsletter</a>
+	</nav>
 </footer>
+
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
-		font-size: 0.8rem;
+	nav a.rat {
+		border-bottom: none;
+		text-decoration: none;
 	}
 </style>

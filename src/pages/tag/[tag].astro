@@ -4,9 +4,9 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import Post from "../../components/Post.astro";
-import ColorScript from "../../components/ColorScript.astro";
+import EmailSignup from "../../components/EmailSignup.astro";
 
-import { title, subtitle } from "../../settings/settings.json"
+import { title, subtitle } from "../../settings/settings.json";
 
 export async function getStaticPaths() {
 	let posts = await getCollection("posts");
@@ -35,31 +35,30 @@ const { tag } = Astro.props;
 const { tag: currentTag } = Astro.params;
 
 let sortedPosts = tag.sort(
-	(a, b) => new Date(b.data.added).valueOf() - new Date(a.data.added).valueOf(),
+	(a, b) =>
+		new Date(b.data.added).valueOf() - new Date(a.data.added).valueOf(),
 );
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
 	<BaseHead title={title} description={subtitle} />
 	<body>
 		<Header />
 		<main>
-			<content>
-				<h3>Posts tagged with "{currentTag}"</h3>
-				<ul class="tags-list">
-					{
-						sortedPosts.map(
-							({
-								url,
-								data: { description, slug, title, tags, added: date },
-							}) => <Post {url} {description} {date} {slug} {title} {tags} />
-						)
-					}
-				</ul>
-			</content>
-			<Footer />
+			<h3>Posts tagged with "{currentTag}"</h3>
+			<ul class="posts-list">
+				{
+					sortedPosts.map(
+						({
+							data: { slug, title },
+						}) => <Post {slug} {title} />,
+					)
+				}
+			</ul>
+
+			<EmailSignup />
 		</main>
-		<ColorScript />
+		<Footer />
 	</body>
 </html>

@@ -1,24 +1,7 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { title, subtitle } from "../settings/settings.json"
-
+// Simple header with owl home link
 ---
 
-<header>
-	<div class="header-section">
-		<div class="header-frame">
-			<h1>{title}</h1>
-			<h2>{subtitle}</h2>
-		</div>
-	</div>
+<header class="site-header">
+	<a href="/" aria-label="Home">🦉</a>
 </header>
-<nav>
-	<HeaderLink href="/">home</HeaderLink>
-	<HeaderLink href="/posts">posts</HeaderLink>
-	<HeaderLink href="https://cassidoo.co/newsletter">etc</HeaderLink>
-</nav>
-<style>
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>

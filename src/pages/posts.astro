@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import EmailSignup from "../components/EmailSignup.astro";
 import Post from "../components/Post.astro";
-import ColorScript from "../components/ColorScript.astro";
 
-import { title, subtitle } from "../settings/settings.json"
+import { title, subtitle } from "../settings/settings.json";
 
 let posts = await getCollection("posts");
 
@@ -23,26 +23,18 @@ posts = posts.sort(
 	<body>
 		<Header />
 		<main>
-			<content>
-				<ul class="posts-list">
-					{
-						posts.map(
-							({
-								url,
-								data: { description, slug, title, tags, added: date },
-							}) => <Post {description} {date} {slug} {title} {tags} />
-						)
-					}
-				</ul>
-			</content>
+			<ul class="posts-list">
+				{
+					posts.map(
+						({
+							data: { slug, title },
+						}) => <Post {slug} {title} />,
+					)
+				}
+			</ul>
 
-			<p class="center">
-				You can also <a href="https://blahg.netlify.app/rss.xml">
-					subscribe with RSS!
-				</a>
-			</p>
+			<EmailSignup />
 		</main>
 		<Footer />
-		<ColorScript />
 	</body>
 </html>

@@ -1,0 +1,32 @@
+---
+// Email signup via Buttondown
+---
+
+<form id="email-signup" action="https://buttondown.com/api/emails/embed-subscribe/pack" method="post">
+	<input
+		type="email"
+		name="email"
+		placeholder="Your email address..."
+		required
+	/>
+	<button type="submit">Join now</button>
+</form>
+
+<script>
+	const form = document.getElementById('email-signup');
+
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const data = new FormData(form);
+		try {
+			await fetch(form.action, {
+				method: 'POST',
+				body: data,
+				mode: 'no-cors',
+			});
+		} catch {
+			// no-cors requests may appear to fail but still go through
+		}
+		window.location.href = '/thank-you';
+	});
+</script>

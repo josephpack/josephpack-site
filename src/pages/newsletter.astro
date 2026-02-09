@@ -1,0 +1,24 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import EmailSignup from "../components/EmailSignup.astro";
+import { subtitle } from "../settings/settings.json";
+---
+
+<html lang="en-us">
+	<BaseHead title="Joseph's Daily Email" description={subtitle} />
+
+	<body>
+		<Header />
+		<main>
+			<h1>Joseph's Daily Email</h1>
+			<p>I write a daily email about working online (and living offline). It's read by freedom seekers who are allergic to corporate BS. If you're a founder, maker, solo business owner, or freelancer, you might like it.</p>
+
+			<EmailSignup />
+
+			<p>There are no sign-up freebies, limited time offers, gimmicks or bonus downloads—just one entertaining email per day.</p>
+		</main>
+		<Footer />
+	</body>
+</html>

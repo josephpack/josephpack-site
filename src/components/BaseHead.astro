@@ -1,5 +1,4 @@
 ---
-import "../style/fonts.css";
 import "../style/global.css";
 
 import { title as SITE_TITLE } from "../settings/settings.json"
@@ -11,8 +10,11 @@ const { title, description, image = "/home-blog-card.png" } = Astro.props;
 	<!-- Global Metadata -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="generator" content={Astro.generator} />
+
+	<!-- Geist Font -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1/dist/fonts/geist-sans/style.css" />
 
 	<!-- Primary Meta Tags -->
 	<title>{title}</title>
@@ -31,7 +33,7 @@ const { title, description, image = "/home-blog-card.png" } = Astro.props;
 	<meta property="twitter:url" content={Astro.url} />
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
-	<meta name="twitter:creator" content="@cassidoo" />
+	<meta name="twitter:creator" content="@josephpack" />
 	<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
 	<!-- RSS Link -->
