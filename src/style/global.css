@@ -292,6 +292,15 @@ svg:hover polyline {
 	margin-bottom: 30px;
 }
 
+.email-cta {
+	font-family: "Newsreader", Georgia, serif;
+	font-weight: 700;
+	font-size: 1.6em;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	margin-bottom: 0;
+}
+
 .highlights {
 	margin: 0 0 30px;
 }
