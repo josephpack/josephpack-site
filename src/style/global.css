@@ -255,7 +255,7 @@ svg:hover polyline {
 /* Homepage */
 .hero {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 40px;
 }
 
@@ -266,12 +266,13 @@ svg:hover polyline {
 
 .hero-photo {
 	flex-shrink: 0;
-	width: 200px;
+	width: 250px;
 }
 
 .hero-photo img {
 	width: 100%;
-	border-radius: 6px;
+	border-radius: 50%;
+	filter: grayscale(90%) opacity(100%);
 }
 
 .intro {
