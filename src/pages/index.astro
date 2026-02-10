@@ -13,34 +13,41 @@ const posts = await getCollection("posts");
 	<BaseHead title={title} description={subtitle} />
 	<body>
 		<main>
-			<div class="intro">
-				<p>
-					I'm Joseph Pack. Writer, consultant, and founder.
-				</p>
+			<div class="hero">
+				<div class="hero-text">
+					<div class="intro">
+						<p>
+							I'm Joseph Pack. Writer, consultant, and founder.
+						</p>
+					</div>
+
+					<ul class="highlights">
+						<li>
+							I co-founded <a href="#">Nativve</a> and Nativve Research, selling my shares in 2017 to travel the world for three years
+						</li>
+						<li>
+							I co-owned fintech startup <a href="#">Fellow Pay</a>, leaving in 2021 to follow a burning passion
+						</li>
+						<li>
+							That passion became <a href="https://drugfreeadhd.org">Drug Free ADHD</a> — I've taught my method to thousands and <a href="#">coached dozens 1:1</a>
+						</li>
+						<li>
+							I do <a href="#">marketing consulting</a> for clients who want to grow sustainably
+						</li>
+						<li>
+							I co-host the <a href="#">Parents Unheard</a> podcast with my wife
+						</li>
+						<li>
+							I write a <a href="/newsletter">daily email</a> about working online and living offline. It's read by founders, makers, freelancers, and consultants.
+						</li>
+					</ul>
+
+				<EmailSignup />
+				</div>
+				<div class="hero-photo">
+					<img src="/JP-profile-photo.png" alt="Joseph Pack" />
+				</div>
 			</div>
-
-			<ul class="highlights">
-				<li>
-					I co-founded <a href="#">Nativve</a> and Nativve Research, selling my shares in 2017 to travel the world for three years
-				</li>
-				<li>
-					I co-owned fintech startup <a href="#">Fellow Pay</a>, leaving in 2021 to follow a burning passion
-				</li>
-				<li>
-					That passion became <a href="https://drugfreeadhd.org">Drug Free ADHD</a> — I've taught my method to thousands and <a href="#">coached dozens 1:1</a>
-				</li>
-				<li>
-					I do <a href="#">marketing consulting</a> for clients who want to grow sustainably
-				</li>
-				<li>
-					I co-host the <a href="#">Parents Unheard</a> podcast with my wife
-				</li>
-				<li>
-					I write a <a href="/newsletter">daily email</a> about working online and living offline. It's read by founders, makers, freelancers, and consultants.
-				</li>
-			</ul>
-
-			<EmailSignup />
 		</main>
 		<Footer />
 	</body>

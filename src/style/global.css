@@ -53,7 +53,7 @@ body {
 }
 
 main {
-	max-width: 650px;
+	max-width: 900px;
 	width: 100%;
 }
 
@@ -253,6 +253,27 @@ svg:hover polyline {
 }
 
 /* Homepage */
+.hero {
+	display: flex;
+	align-items: flex-start;
+	gap: 40px;
+}
+
+.hero-text {
+	flex: 1;
+	min-width: 0;
+}
+
+.hero-photo {
+	flex-shrink: 0;
+	width: 200px;
+}
+
+.hero-photo img {
+	width: 100%;
+	border-radius: 6px;
+}
+
 .intro {
 	margin-bottom: 30px;
 }
@@ -392,6 +413,14 @@ ul.posts-list li::before {
 		padding: 30px 20px;
 		font-size: 14px;
 		line-height: 26px;
+	}
+
+	.hero {
+		flex-direction: column-reverse;
+	}
+
+	.hero-photo {
+		width: 140px;
 	}
 
 	form {
