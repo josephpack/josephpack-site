@@ -278,6 +278,15 @@ svg:hover polyline {
 	margin-bottom: 30px;
 }
 
+.intro h1 {
+	font-family: "Newsreader", Georgia, serif;
+	font-weight: 700;
+	font-size: 2.8em;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	margin-bottom: 30px;
+}
+
 .highlights {
 	margin: 0 0 30px;
 }
