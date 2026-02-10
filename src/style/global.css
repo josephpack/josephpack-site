@@ -278,6 +278,10 @@ svg:hover polyline {
 	margin-bottom: 30px;
 }
 
+.intro .name {
+	color: var(--hover);
+}
+
 .intro h1 {
 	font-family: "Newsreader", Georgia, serif;
 	font-weight: 700;
