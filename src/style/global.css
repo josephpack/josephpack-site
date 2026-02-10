@@ -2,9 +2,9 @@
 
 :root {
 	--text: #222;
-	--bg: #fcfcfc;
+	--bg: #bebdb8;
 	--link-border: #ddd;
-	--hover: #2d6a4f;
+	--hover: #f2312c;
 	--input-border: #bbb;
 	--button-border: #444;
 	--svg-fill: #aeaeae;
@@ -388,7 +388,7 @@ ul.posts-list li::before {
 		--text: #ddd;
 		--bg: #1a1a1a;
 		--link-border: #444;
-		--hover: #2d6a4f;
+		--hover: #f2312c;
 		--input-border: #555;
 		--button-border: #999;
 		--svg-fill: #666;
