@@ -1,0 +1,69 @@
+name: Send new posts to Buttondown
+
+on:
+  push:
+    branches: [main]
+    paths: ['posts/**']
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Send new posts to Buttondown
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: |
+          changed_files=$(git diff --name-only HEAD~1 HEAD -- 'posts/*.md')
+
+          if [ -z "$changed_files" ]; then
+            echo "No post changes detected."
+            exit 0
+          fi
+
+          for file in $changed_files; do
+            if [ ! -f "$file" ]; then
+              echo "Skipping deleted file: $file"
+              continue
+            fi
+
+            echo "Processing: $file"
+
+            # Extract title from YAML frontmatter
+            title=$(awk '/^---$/{n++; next} n==1 && /^title:/{sub(/^title:[[:space:]]*/, ""); print; exit}' "$file")
+
+            # Extract body (everything after the second ---)
+            body=$(awk 'BEGIN{n=0} /^---$/{n++; next} n>=2{print}' "$file")
+
+            if [ -z "$title" ]; then
+              echo "Warning: No title found in $file, skipping."
+              continue
+            fi
+
+            echo "Sending: $title"
+
+            # Build JSON payload using jq
+            payload=$(jq -n \
+              --arg subject "$title" \
+              --arg body "$body" \
+              '{subject: $subject, body: $body, status: "about_to_send"}')
+
+            response=$(curl -s -w "\n%{http_code}" \
+              -X POST "https://api.buttondown.com/v1/emails" \
+              -H "Authorization: Token $BUTTONDOWN_API_KEY" \
+              -H "Content-Type: application/json" \
+              -d "$payload")
+
+            http_code=$(echo "$response" | tail -1)
+            response_body=$(echo "$response" | sed '$d')
+
+            if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
+              echo "Sent successfully (HTTP $http_code)"
+            else
+              echo "Failed to send (HTTP $http_code): $response_body"
+              exit 1
+            fi
+          done

@@ -363,11 +363,12 @@ ul.posts-list li::before {
 }
 
 .blog-post {
-	line-height: 30px;
+	max-width: 65ch;
+	line-height: 1.6;
 }
 
-.blog-post > * + * {
-	margin-block-start: 1em;
+.blog-post p {
+	margin-bottom: 1em;
 }
 
 /* Site footer */
