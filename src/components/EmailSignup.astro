@@ -2,15 +2,18 @@
 // Email signup via Buttondown
 ---
 
-<form id="email-signup" action="https://buttondown.com/api/emails/embed-subscribe/pack" method="post">
-	<input
-		type="email"
-		name="email"
-		placeholder="Your email address..."
-		required
-	/>
-	<button type="submit">Join now</button>
-</form>
+<div class="email-signup-wrapper">
+	<h2 class="email-cta">I write a daily email about working online and living offline. It's read by founders, makers, freelancers, and consultants.</h2>
+	<form id="email-signup" action="https://buttondown.com/api/emails/embed-subscribe/pack" method="post">
+		<input
+			type="email"
+			name="email"
+			placeholder="Your email address..."
+			required
+		/>
+		<button type="submit">Join now</button>
+	</form>
+</div>
 
 <script>
 	const form = document.getElementById('email-signup');
